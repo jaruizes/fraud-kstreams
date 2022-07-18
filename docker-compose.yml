@@ -1,0 +1,92 @@
+---
+version: '3'
+services:
+  zookeeper:
+    image: confluentinc/cp-zookeeper:latest
+    hostname: zookeeper
+    ports:
+      - '32181:32181'
+    environment:
+      ZOOKEEPER_CLIENT_PORT: 2181
+      ZOOKEEPER_TICK_TIME: 2000
+    extra_hosts:
+      - "moby:127.0.0.1"
+  kafka:
+    image: confluentinc/cp-kafka:latest
+    hostname: kafka
+    ports:
+      - '29092:29092'
+    depends_on:
+      - zookeeper
+    environment:
+      KAFKA_BROKER_ID: 1
+      KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
+      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://kafka:9092
+      KAFKA_AUTO_CREATE_TOPICS_ENABLE: 'true'
+      KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
+      KAFKA_GROUP_INITIAL_REBALANCE_DELAY_MS: 0
+    extra_hosts:
+      - "moby:127.0.0.1"
+  schema-registry:
+    image: confluentinc/cp-schema-registry:latest
+    ports:
+      - "8181:8181"
+      - "8081:8081"
+    environment:
+      SCHEMA_REGISTRY_KAFKASTORE_CONNECTION_URL: zookeeper:2181
+      SCHEMA_REGISTRY_KAFKASTORE_BOOTSTRAP_SERVERS: PLAINTEXT://kafka:9092
+      SCHEMA_REGISTRY_HOST_NAME: schema-registry
+      SCHEMA_REGISTRY_LISTENERS: http://schema-registry:8081
+      SCHEMA_REGISTRY_ACCESS_CONTROL_ALLOW_METHODS: GET,POST,PUT,OPTIONS,DELETE
+      SCHEMA_REGISTRY_ACCESS_CONTROL_ALLOW_ORIGIN: '*'
+    depends_on:
+      - zookeeper
+      - kafka
+  schema-registry-ui:
+    image: landoop/schema-registry-ui
+    ports:
+      - "8000:8000"
+    depends_on:
+      - schema-registry
+    environment:
+      SCHEMAREGISTRY_URL: "http://schema-registry:8081"
+      PROXY: "true"
+  kafka-ui:
+    image: provectuslabs/kafka-ui:latest
+    ports:
+      - "9081:9081"
+    depends_on:
+      - kafka
+    environment:
+      SERVER_PORT: 9081
+      KAFKA_CLUSTERS_0_BOOTSTRAPSERVERS: kafka:9092
+      KAFKA_CLUSTERS_0_ZOOKEEPER: zookeeper:2181
+      KAFKA_CLUSTERS_0_NAME: local
+#  kafka-setup:
+#    image: confluentinc/cp-kafka:latest
+#    depends_on:
+#      - kafka
+#    hostname: kafka-setup
+#    command: "bash -c 'echo Waiting for Kafka to be ready... && \
+#                       cub kafka-ready -b kafka:29092 1 60 && \
+#                       kafka-topics --create --if-not-exists --topic atm-movements --bootstrap-server kafka:29092 --partitions 1 --replication-factor 1 && \
+#                       kafka-topics --create --if-not-exists --topic online-movements --bootstrap-server kafka:29092 --partitions 1 --replication-factor 1 && \
+#                       kafka-topics --create --if-not-exists --topic merchant-movements --bootstrap-server kafka:29092 --partitions 1 --replication-factor 1 && \
+#                       kafka-topics --create --if-not-exists --topic datagen-fraudsimulator-data-results --bootstrap-server kafka:29092 --partitions 1 --replication-factor 1 && \
+#                       kafka-topics --create --if-not-exists --topic datagen-fraudsimulator-data --bootstrap-server kafka:29092 --partitions 1 --replication-factor 1 && \
+#                       sleep infinity'"
+#    environment:
+#      KAFKA_BROKER_ID: ignored
+#      KAFKA_ZOOKEEPER_CONNECT: ignored
+#    extra_hosts:
+#      - "moby:127.0.0.1"
+#  fraud-simulator:
+#    image: fraud-simulator:1.0.0-SNAPSHOT
+#    ports:
+#      - 8090:8090
+#    depends_on:
+#      - kafka
+#      - kafka-setup
+#    environment:
+#      - QUARKUS_HTTP_PORT=8090
+#      - KAFKA_BOOTSTRAP_SERVERS=kafka:29092

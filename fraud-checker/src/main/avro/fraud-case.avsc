@@ -1,0 +1,29 @@
+{
+  "type": "record",
+  "name": "FraudCase",
+  "doc": "This is a the schema of a potential fraud case detected",
+  "namespace": "com.jaruiz.examples.kstreams.model",
+  "fields": [
+    {
+      "name": "id",
+      "type": "long"
+    },
+    {
+      "name": "card",
+      "type": "string"
+    },
+    {
+      "name": "totalAmount",
+      "type": "float"
+    },
+    {
+      "name": "movements",
+      "type": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      }
+    }
+  ]
+}

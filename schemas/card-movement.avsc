@@ -1,0 +1,32 @@
+{
+  "type": "record",
+  "name": "CardMovement",
+  "doc": "This is a the schema of a card movement",
+  "namespace": "com.jaruiz.examples.kstreams.model",
+  "fields": [
+    {
+      "name": "id",
+      "type": "string"
+    },
+    {
+      "name": "card",
+      "type": "string"
+    },
+    {
+      "name": "amount",
+      "type": "float"
+    },
+    {
+      "name": "origin",
+      "type": "int"
+    },
+    {
+      "name": "device",
+      "type": "int"
+    },
+    {
+      "name": "createdAt",
+      "type": "string"
+    }
+  ]
+}
