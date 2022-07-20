@@ -15,13 +15,11 @@ public class CardMovementCreatedAtExtractor implements TimestampExtractor {
     @Override
     public long extract(ConsumerRecord<Object, Object> consumerRecord, long l) {
         CardMovement cardMovement = (CardMovement) consumerRecord.value();
-        long createdAtLong = iso8601ToDate(cardMovement.getCreatedAt());
 
-        LOG.info("Card: " + cardMovement.getCard() + " / Created at: " + cardMovement.getCreatedAt() + " / Created at (long): " + createdAtLong);
-        return createdAtLong;
+        return iso8601ToEpoch(cardMovement.getCreatedAt());
     }
 
-    private long iso8601ToDate(String createdAt) {
+    private long iso8601ToEpoch(String createdAt) {
         SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss z");
 
         try {
