@@ -1,8 +1,8 @@
-package com.jaruiz.examples.kstreams.fraudchecker;
+package com.paradigma.examples.kstreams.fraudchecker;
 
-import com.jaruiz.examples.kstreams.fraudchecker.config.FraudCheckerConfig;
-import com.jaruiz.examples.kstreams.model.CardMovement;
-import com.jaruiz.examples.kstreams.model.FraudCase;
+import com.paradigma.examples.kstreams.fraudchecker.config.FraudCheckerConfig;
+import com.paradigma.examples.kstreams.model.CardMovement;
+import com.paradigma.examples.kstreams.model.FraudCase;
 import io.confluent.kafka.serializers.AbstractKafkaSchemaSerDeConfig;
 import io.confluent.kafka.streams.serdes.avro.SpecificAvroSerde;
 import io.quarkus.test.junit.QuarkusTest;
@@ -28,8 +28,8 @@ import static org.hamcrest.CoreMatchers.is;
 public class FraudCheckerTopologyTest {
 
     TopologyTestDriver testDriver;
-    TestInputTopic<String, com.jaruiz.examples.kstreams.model.CardMovement> movementsTopic;
-    TestOutputTopic<String, com.jaruiz.examples.kstreams.model.FraudCase> fraudCasesTopic;
+    TestInputTopic<String, CardMovement> movementsTopic;
+    TestOutputTopic<String, FraudCase> fraudCasesTopic;
 
     @Inject
     FraudCheckerConfig config;

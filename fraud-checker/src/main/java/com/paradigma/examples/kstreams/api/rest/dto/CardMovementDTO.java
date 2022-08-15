@@ -1,4 +1,4 @@
-package com.jaruiz.examples.kstreams.api.rest.dto;
+package com.paradigma.examples.kstreams.api.rest.dto;
 
 import lombok.Data;
 

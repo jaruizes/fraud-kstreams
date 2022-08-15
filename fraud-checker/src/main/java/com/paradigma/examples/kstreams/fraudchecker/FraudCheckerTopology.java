@@ -1,12 +1,12 @@
-package com.jaruiz.examples.kstreams.fraudchecker;
+package com.paradigma.examples.kstreams.fraudchecker;
 
-import com.jaruiz.examples.kstreams.fraudchecker.config.FraudCheckerConfig;
-import com.jaruiz.examples.kstreams.fraudchecker.extractors.CardMovementCreatedAtExtractor;
-import com.jaruiz.examples.kstreams.fraudchecker.model.PotentialFraudCase;
-import com.jaruiz.examples.kstreams.fraudchecker.model.PotentialOnlineFraudCase;
-import com.jaruiz.examples.kstreams.fraudchecker.model.PotentialPhysicalFraudCase;
-import com.jaruiz.examples.kstreams.model.CardMovement;
-import com.jaruiz.examples.kstreams.model.FraudCase;
+import com.paradigma.examples.kstreams.fraudchecker.config.FraudCheckerConfig;
+import com.paradigma.examples.kstreams.fraudchecker.extractors.CardMovementCreatedAtExtractor;
+import com.paradigma.examples.kstreams.fraudchecker.model.PotentialFraudCase;
+import com.paradigma.examples.kstreams.fraudchecker.model.PotentialOnlineFraudCase;
+import com.paradigma.examples.kstreams.fraudchecker.model.PotentialPhysicalFraudCase;
+import com.paradigma.examples.kstreams.model.CardMovement;
+import com.paradigma.examples.kstreams.model.FraudCase;
 import io.confluent.kafka.streams.serdes.avro.SpecificAvroSerde;
 import io.quarkus.kafka.client.serialization.ObjectMapperDeserializer;
 import io.quarkus.kafka.client.serialization.ObjectMapperSerializer;

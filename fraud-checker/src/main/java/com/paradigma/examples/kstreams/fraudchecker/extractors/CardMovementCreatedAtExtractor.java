@@ -1,6 +1,6 @@
-package com.jaruiz.examples.kstreams.fraudchecker.extractors;
+package com.paradigma.examples.kstreams.fraudchecker.extractors;
 
-import com.jaruiz.examples.kstreams.model.CardMovement;
+import com.paradigma.examples.kstreams.model.CardMovement;
 import org.apache.kafka.clients.consumer.ConsumerRecord;
 import org.apache.kafka.streams.processor.TimestampExtractor;
 import org.jboss.logging.Logger;

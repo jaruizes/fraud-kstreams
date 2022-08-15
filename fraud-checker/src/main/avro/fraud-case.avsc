@@ -2,7 +2,7 @@
   "type": "record",
   "name": "FraudCase",
   "doc": "This is a the schema of a potential fraud case detected",
-  "namespace": "com.jaruiz.examples.kstreams.model",
+  "namespace": "com.paradigma.examples.kstreams.model",
   "fields": [
     {
       "name": "id",

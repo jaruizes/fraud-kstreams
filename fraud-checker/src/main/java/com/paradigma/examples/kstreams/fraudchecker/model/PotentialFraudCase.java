@@ -1,9 +1,9 @@
-package com.jaruiz.examples.kstreams.fraudchecker.model;
+package com.paradigma.examples.kstreams.fraudchecker.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonSubTypes;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
-import com.jaruiz.examples.kstreams.model.CardMovement;
+import com.paradigma.examples.kstreams.model.CardMovement;
 import lombok.Data;
 
 import java.util.*;

@@ -1,4 +1,4 @@
-package com.jaruiz.examples.kstreams.fraudchecker.config;
+package com.paradigma.examples.kstreams.fraudchecker.config;
 
 import lombok.Getter;
 import org.eclipse.microprofile.config.inject.ConfigProperty;

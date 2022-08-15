@@ -1,12 +1,10 @@
-package com.jaruiz.examples.kstreams.fraudchecker.model;
+package com.paradigma.examples.kstreams.fraudchecker.model;
 
-import com.jaruiz.examples.kstreams.fraudchecker.config.FraudCheckerConfig;
-import com.jaruiz.examples.kstreams.model.CardMovement;
+import com.paradigma.examples.kstreams.fraudchecker.config.FraudCheckerConfig;
+import com.paradigma.examples.kstreams.model.CardMovement;
 import lombok.Data;
 
-import java.util.ArrayList;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
 @Data

@@ -1,8 +1,7 @@
-package com.jaruiz.examples.kstreams.api;
+package com.paradigma.examples.kstreams.api;
 
-import com.jaruiz.examples.kstreams.api.rest.dto.CardMovementDTO;
-import com.jaruiz.examples.kstreams.fraudchecker.FraudCheckerTopology;
-import com.jaruiz.examples.kstreams.model.CardMovement;
+import com.paradigma.examples.kstreams.api.rest.dto.CardMovementDTO;
+import com.paradigma.examples.kstreams.model.CardMovement;
 import org.eclipse.microprofile.reactive.messaging.Channel;
 import org.eclipse.microprofile.reactive.messaging.Emitter;
 import org.jboss.logging.Logger;

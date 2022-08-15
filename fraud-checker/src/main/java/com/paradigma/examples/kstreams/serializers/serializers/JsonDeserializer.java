@@ -1,4 +1,4 @@
-package com.jaruiz.examples.kstreams.serializers.serializers;
+package com.paradigma.examples.kstreams.serializers.serializers;
 
 import com.google.gson.Gson;
 import org.apache.kafka.common.serialization.Deserializer;

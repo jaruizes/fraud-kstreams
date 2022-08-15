@@ -1,8 +1,4 @@
-# fraud-checker Project
-
-This project uses Quarkus, the Supersonic Subatomic Java Framework.
-
-If you want to learn more about Quarkus, please visit its website: https://quarkus.io/ .
+# Detección de Fraude con Quarkus y Kafka Streams
 
 ## Running the application in dev mode
 
