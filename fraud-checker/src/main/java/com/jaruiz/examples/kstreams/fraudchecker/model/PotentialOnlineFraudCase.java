@@ -22,7 +22,7 @@ public class PotentialOnlineFraudCase extends PotentialFraudCase {
 
     public void addMovement(CardMovement cardMovement) {
         super.addMovement(cardMovement);
-        this.sites.add(cardMovement.getDevice());
+        this.sites.add(cardMovement.getSite());
     }
 
     @Override

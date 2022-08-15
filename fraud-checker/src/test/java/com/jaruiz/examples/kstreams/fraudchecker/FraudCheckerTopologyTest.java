@@ -91,7 +91,7 @@ public class FraudCheckerTopologyTest {
                 cardMovementBuilder("m4", "c2", FraudCheckerConfig.ATM_MOVEMENT, 10.0f, "atm-1", null, now.plusSeconds(15)),
                 cardMovementBuilder("m4", "c2", FraudCheckerConfig.ATM_MOVEMENT, 10.0f, "atm-1", null, now.plusSeconds(25)),
                 cardMovementBuilder("m4", "c2", FraudCheckerConfig.ATM_MOVEMENT, 10.0f, "atm-1", null, now.plusSeconds(35)),
-                cardMovementBuilder("m4", "c2", FraudCheckerConfig.ATM_MOVEMENT, 10.0f, "atm-1", null, now.plusSeconds(45)),
+                cardMovementBuilder("m4", "c2", FraudCheckerConfig.ATM_MOVEMENT, 10.0f, "atm-2", null, now.plusSeconds(45)),
                 cardMovementBuilder("m5", "c3", FraudCheckerConfig.ATM_MOVEMENT, 10.0f, "atm-1", null, now.plusSeconds(20)),
                 cardMovementBuilder("m5", "c3", FraudCheckerConfig.ATM_MOVEMENT, 10.0f, "atm-1", null, now.plusSeconds(40)),
                 cardMovementBuilder("m5", "c5", FraudCheckerConfig.ATM_MOVEMENT, 10.0f, "atm-1", null, now.plusSeconds(500)));

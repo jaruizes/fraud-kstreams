@@ -44,21 +44,13 @@ services:
     depends_on:
       - zookeeper
       - kafka
-  schema-registry-ui:
-    image: landoop/schema-registry-ui
-    ports:
-      - "8000:8000"
-    depends_on:
-      - schema-registry
-    environment:
-      SCHEMAREGISTRY_URL: http://schema-registry:8081
-      PROXY: "true"
   kafka-ui:
     image: provectuslabs/kafka-ui:latest
     ports:
       - "9081:9081"
     depends_on:
       - kafka
+      - schema-registry
     environment:
       SERVER_PORT: 9081
       KAFKA_CLUSTERS_0_BOOTSTRAPSERVERS: kafka:9092

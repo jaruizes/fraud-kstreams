@@ -37,9 +37,9 @@ public class CardMovementsRestAPI {
 
         cardMovementEmitter.send(cardMovement).whenComplete((success, failure) -> {
             if (failure != null) {
-                LOG.error(failure.getMessage());
+                LOG.error("Error: " + cardMovement.getId() + " // MSG: " + failure.getMessage());
             } else {
-                LOG.info("Message processed successfully");
+                LOG.info("Message processed successfully: " + cardMovement.getId());
             }
         });
 

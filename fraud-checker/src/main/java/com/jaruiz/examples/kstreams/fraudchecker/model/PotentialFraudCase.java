@@ -20,12 +20,12 @@ public abstract class PotentialFraudCase {
     private String card;
     private int type;
     private float totalAmount;
-    private List<String> movements;
+    private Set<String> movements;
     private Date createdAt;
 
     public PotentialFraudCase() {
         this.totalAmount = 0f;
-        this.movements = new ArrayList<>();
+        this.movements = new HashSet<>();
         this.createdAt = new Date();
     }
 

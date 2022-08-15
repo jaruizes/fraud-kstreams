@@ -101,7 +101,7 @@ public class FraudCheckerTopology {
         LOG.info("Fraud case created: <" + id + ">");
         FraudCase fraudCase = FraudCase.newBuilder()
                 .setId(id)
-                .setMovements(potentialFraudCase.getMovements())
+                .setMovements(new ArrayList<>(potentialFraudCase.getMovements()))
                 .setCard(potentialFraudCase.getCard())
                 .setType(potentialFraudCase.getType())
                 .setTotalAmount(potentialFraudCase.getTotalAmount())
